@@ -15,11 +15,11 @@ Vagrant.configure("2") do |config|
     beta.vm.provision "shell", inline: <<-SHELL
       curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
       sudo apt-get install -y nodejs
-      cd /vagrant
-      node app1.js &
+      cd /vagrant/vm-2
+      node app2.js &
     SHELL
   end
 end
 
 # How to operate these! 
-# Can currently use curl 192.168.55.11:80 from either alpha vm or host and get hello world back
+# Can currently use curl 192.168.55.11:3000 from either alpha vm or host and get hello world back
