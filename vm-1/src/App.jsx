@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
-import PersonList from "./components/PersonList";
+import NoteList from "./components/NoteList";
 
 function App() {
   return (
     <div className="App">
-      <PersonList />
+      <p>hi</p>
+      <NoteList />
     </div>
   );
 }

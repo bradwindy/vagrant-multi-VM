@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-export default class PersonList extends React.Component {
+export default class NoteList extends React.Component {
   state = {
     reply: []
   };
@@ -17,8 +17,8 @@ export default class PersonList extends React.Component {
   render() {
     return (
       <ul>
-        {this.state.reply.map(person => (
-          <li key={person._id}>{person.note}</li>
+        {this.state.reply.map(note => (
+          <li key={note._id}>{note.note}</li>
         ))}
       </ul>
     );
