@@ -15,6 +15,11 @@ Vagrant.configure("2") do |config|
     beta.vm.provision "shell", inline: <<-SHELL
       curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
       sudo apt-get install -y nodejs
+      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+      echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+      sudo apt-get update
+      sudo apt-get install -y mongodb-org --allow-unauthenticated
+      sudo service mongod start &
       cd /vagrant/vm-2
       node app2.js &
     SHELL
