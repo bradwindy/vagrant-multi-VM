@@ -34,7 +34,7 @@ app.get("/", (req, res) => res.send("Hello World!\n"));
 
 app.get("/reply", (req, res) => res.send("This is the server reply text\n"));
 
-app.post("/notes", (req, res) => {
+app.post("/note", (req, res) => {
   db.collection("notes").insertOne(req.body, (err, result) => {
     if (err) return console.log(err);
 
@@ -42,6 +42,16 @@ app.post("/notes", (req, res) => {
     res.send({ reply: "Note was saved.", contents: req.body });
     res.end();
   });
+});
+
+app.get("/notes", (req, res) => {
+  db.collection("notes")
+    .find()
+    .toArray(function(err, result) {
+      if (err) throw err;
+      res.send(result);
+      console.log(result);
+    });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
