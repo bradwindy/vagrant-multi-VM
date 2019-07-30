@@ -54,4 +54,8 @@ app.get("/notes", (req, res) => {
     });
 });
 
+app.post("/deleteallnotes", (req, res) => {
+  db.collection("notes").deleteMany({});
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
