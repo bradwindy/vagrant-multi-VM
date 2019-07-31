@@ -35,11 +35,11 @@ app.get("/", (req, res) => res.send("Hello World!\n"));
 app.get("/reply", (req, res) => res.send("This is the server reply text\n"));
 
 app.post("/note", (req, res) => {
-  db.collection("notes").insertOne(req.body, (err, result) => {
+  db.collection("notes").insertOne(req.body.note, (err, result) => {
     if (err) return console.log(err);
 
     console.log("saved to database");
-    res.send({ reply: "Note was saved.", contents: req.body });
+    res.send({ reply: "Note was saved.", contents: req.body.note });
     res.end();
   });
 });

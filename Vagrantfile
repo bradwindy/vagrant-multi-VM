@@ -38,6 +38,3 @@ Vagrant.configure("2") do |config|
     SHELL
   end
 end
-
-# How to operate these! 
-# Can currently use curl 192.168.55.11:3000 from either webapp vm or host and get hello world back

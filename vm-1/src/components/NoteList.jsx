@@ -16,9 +16,11 @@ export default class NoteList extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className="list-group pt-3">
         {this.state.reply.map(note => (
-          <li key={note._id}>{note.note}</li>
+          <li className="list-group-item" key={note._id}>
+            {note.note}
+          </li>
         ))}
       </ul>
     );
