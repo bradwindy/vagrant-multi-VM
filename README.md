@@ -2,9 +2,13 @@
 
 ## About
 
-This is going to be a project connecting several VM's together.
+This is a project connecting several VM's together to form a collaborative to-do list web app.
 
 There is currently one VM hosting a to-do list web app written in React. There is another hosting a node server with an express.js API connected to a mongoDB database that serves and stores the tasks. A third will have some form of print to pdf tool or some similar bulk processing of forum posts/notes.
+
+**See GitHub issues and commit history for project work history.**
+
+**I am implementing issue driven development somewhat, and so issues may contain features I want to add in the future.**
 
 ## Getting Started
 
