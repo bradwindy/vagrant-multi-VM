@@ -17,7 +17,18 @@ export default class Nav extends React.Component {
       note: this.state.note
     };
 
-    axios.post(`http://192.168.55.11:3000/note`, { note }).then(res => {
+    axios.post(`http://localhost:3000/note`, { note }).then(res => {
+      console.log(res);
+      console.log(res.data);
+    });
+
+    window.location.reload();
+  };
+
+  deleteFunction = event => {
+    event.preventDefault();
+
+    axios.delete(`http://localhost:3000/deleteallnotes`, {}).then(res => {
       console.log(res);
       console.log(res.data);
     });
@@ -42,6 +53,13 @@ export default class Nav extends React.Component {
           <div className="row">
             <button className="btn btn-outline-success" type="submit">
               Add
+            </button>
+            <button
+              className="btn btn-outline-danger ml-2"
+              onClick={this.deleteFunction}
+              type="button"
+            >
+              Delete All
             </button>
           </div>
         </div>

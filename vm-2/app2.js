@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const MongoClient = require("mongodb").MongoClient;
+const mongo = require("mongodb");
 const bodyParser = require("body-parser");
 
 let db;
@@ -25,6 +26,7 @@ app.use(function(req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
 
@@ -40,7 +42,6 @@ app.post("/note", (req, res) => {
 
     console.log("saved to database");
     res.send({ reply: "Note was saved.", contents: req.body.note });
-    res.end();
   });
 });
 
@@ -54,8 +55,23 @@ app.get("/notes", (req, res) => {
     });
 });
 
-app.post("/deleteallnotes", (req, res) => {
-  db.collection("notes").deleteMany({});
+app.delete("/deleteallnotes", (req, res) => {
+  db.collection("notes").deleteMany({}, (err, result) => {
+    if (err) return console.log(err);
+    res.send(result);
+  });
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.delete("/delete/:id", (req, res) => {
+  let id = req.params.id;
+
+  db.collection("notes").deleteOne(
+    { _id: new mongo.ObjectId(id) },
+    (err, result) => {
+      if (err) return console.log(err);
+      res.send(result);
+    }
+  );
+});
+
+app.listen(port, () => console.log(`App listening on port ${port}`));
