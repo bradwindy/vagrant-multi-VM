@@ -37,7 +37,18 @@ Vagrant.configure("2") do |config|
       nohup npm start &
     SHELL
   end
-end
 
-# How to operate these! 
-# Can currently use curl 192.168.55.11:3000 from either webapp vm or host and get hello world back
+  config.vm.define :pdf do |pdf|
+    pdf.vm.box = "ubuntu/xenial64"
+    pdf.vm.network "private_network", ip: "192.168.55.12"
+    pdf.vm.hostname = "pdf"
+    pdf.vm.provision "shell", inline: <<-SHELL
+      curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+      sudo apt-get update
+      sudo apt-get install -y nodejs
+      cd /vagrant/vm-3
+      npm install
+      node pdf-out.js &
+    SHELL
+  end
+end
