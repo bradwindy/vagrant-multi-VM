@@ -4,3 +4,4 @@ ubuntu-xenial-16.04-cloudimg-console.log
 .DS_Store
 node_modules
 *.out
+*.pdf
