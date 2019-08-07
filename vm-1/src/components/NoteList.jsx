@@ -7,7 +7,7 @@ export default class NoteList extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:3000/notes`).then(res => {
+    axios.get(`http://192.168.55.11:3000/notes`).then(res => {
       const reply = res.data;
       console.log(reply);
       this.setState({ reply });
@@ -15,7 +15,7 @@ export default class NoteList extends React.Component {
   }
 
   deleteOne = id => {
-    axios.delete(`http://localhost:3000/delete/${id}`).then(res => {
+    axios.delete(`http://192.168.55.11:3000/delete/${id}`).then(res => {
       console.log(res);
       console.log(res.data);
     });
@@ -36,7 +36,7 @@ export default class NoteList extends React.Component {
       );
     } else {
       return (
-        <ul className="list-group pt-3">
+        <ul className="list-group pt-3 pb-5">
           {this.state.reply.map(note => (
             <li className="list-group-item font-weight-bold" key={note._id}>
               {note.note}{" "}
