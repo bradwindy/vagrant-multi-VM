@@ -17,12 +17,17 @@ export default class Nav extends React.Component {
       note: this.state.note
     };
 
-    axios.post(`http://localhost:3000/note`, { note }).then(res => {
-      console.log(res);
-      console.log(res.data);
-    });
+    if (note.note === "") {
+      alert("Tasks cannot be blank");
+    } else {
+      console.log(note);
+      axios.post(`http://localhost:3000/note`, { note }).then(res => {
+        console.log(res);
+        console.log(res.data);
+      });
 
-    window.location.reload();
+      window.location.reload();
+    }
   };
 
   deleteFunction = event => {
