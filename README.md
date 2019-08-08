@@ -2,9 +2,9 @@
 
 ## About
 
-This is a project connecting several VM's together to form a collaborative to-do list web app.
+This is a project connecting three VM's together to form a collaborative to-do list web app.
 
-There is currently one VM hosting a to-do list web app written in React. There is another hosting a node server with an express.js API connected to a mongoDB database that serves and stores the tasks. A third will have some form of print to pdf tool or some similar bulk processing of forum posts/notes.
+The system consists of three Vagrant virtual machines. One VM is hosting a to-do list web app written in React. It communicates with the server VM to load, save, and delete tasks. There is another hosting a node server with an express.js API connected to a mongoDB database that serves and stores the tasks. A third uses a Node.js app and some PDF libraries to get the tasks from the server VM and print them to a PDF in list form. This VM is called from a script in the root directory of the repo.
 
 **See GitHub issues and commit history for project work history.**
 
@@ -12,12 +12,24 @@ There is currently one VM hosting a to-do list web app written in React. There i
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine.
 
 ### Prerequisites
 
 - Download and install Vagrant <https://www.vagrantup.com/downloads.html>
 - Download and install Virtualbox <https://www.virtualbox.org/wiki/Downloads>
+
+### Download and Setup Time Stats
+
+- ~ 400MB for downloads of packages/dependencies during provisioning.
+
+- ~ 270MB download for box file.
+
+- Repo only 5MB (Zipped).
+
+- `vagrant up` from scratch or `vagrant up --provision` takes 4.5 - 5 minutes to complete (this includes downloads and provisioning). Tested on University Library WiFi (50Mbps Download Speed).
+
+- `vagrant up` any time after (without provisioning) only takes 1 minute.
 
 ### Setup & Starting
 
@@ -41,4 +53,4 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Author
 
-- **Bradley Windybank** - *All work*
+- **Bradley Windybank** - _All work_
