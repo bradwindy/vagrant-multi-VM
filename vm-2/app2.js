@@ -16,21 +16,25 @@ MongoClient.connect("mongodb://localhost:27017/db", function(err, client) {
     .find()
     .toArray(function(err, result) {
       if (err) throw err;
-      console.log(result);
-    });
+      if (result.length === 0) {
+        console.log("Database is currently empty");
 
-  db.collection("notes").insertMany(
-    [
-      { note: "These are some example tasks" },
-      { note: "Add new tasks above" },
-      { note: "Delete these using the X on the left" },
-      { note: "Or use the delete all button above!" }
-    ],
-    (err, result) => {
-      if (err) return console.log(err);
-      console.log("Added initial data");
-    }
-  );
+        db.collection("notes").insertMany(
+          [
+            { note: "These are some example tasks" },
+            { note: "Add new tasks above" },
+            { note: "Delete these using the X on the left" },
+            { note: "Or use the delete all button above!" }
+          ],
+          (err, result) => {
+            if (err) return console.log(err);
+            console.log("Added initial data");
+          }
+        );
+      } else {
+        console.log("Database has contents. Will not initialise again.");
+      }
+    });
 });
 
 app.use(function(req, res, next) {

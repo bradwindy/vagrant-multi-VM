@@ -48,7 +48,8 @@ Vagrant.configure("2") do |config|
       sudo apt-get install -y nodejs
       cd /vagrant/vm-3
       npm install
-      node pdf-out.js &
+      node pdf-out.js
+      mv task-list.pdf ../task-list.pdf
     SHELL
   end
 end
