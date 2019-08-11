@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{hyperref}
 
 \definecolor{lightgray}{rgb}{.9,.9,.9}
 \definecolor{darkgray}{rgb}{.4,.4,.4}
@@ -44,15 +45,15 @@ The three VMs interact over a private network. Each machine has its own static I
 \item Next run  \lstinline|cd vagrant-multi-VM|
 \item The project is viewable and editable from this directory.
 \item The command  \lstinline|vagrant up| in terminal will run the project.
-\item You can now view the web app from http://localhost:3001 and can enter and delete notes.
+\item You can now view the web app from \url{http://localhost:3001} and can enter and delete notes.
 \item More information regarding setup is available from the GitHub readme file.
 \end{itemize}
 
 \subsection{Download and Build Time}
 \begin{itemize}
-\item ~ 400MB for downloads of packages/dependencies during provisioning.
-\item ~ 270MB download for box file.
-\item Repo only 5MB (Zipped).
+\item 400MB approx for downloads of packages/dependencies during provisioning.
+\item 270MB approx download for box file.
+\item 5MB repo clone (Zipped).
 \item \lstinline|vagrant up| from scratch or \lstinline|vagrant up --provision| takes 4.5 to 5 minutes to complete (this includes downloads and provisioning). Tested on University Library WiFi (50Mbps Download Speed).
 \item  \lstinline|vagrant up| any time after (without provisioning) only takes 1 minute.
 \end{itemize}
@@ -100,8 +101,38 @@ Below should be a link containing a recording of the mentioned interactions with
 
 \section{Further Expansion}
 \subsection{Use of Git/GitHub}
-For Easy Modification by Others
+The use of Git/GitHub in this project gives several advantages. One is that it allows for easy version control. The commit history can be looked back on and changes can be reverted or branched if needed. It also allows for easy modification by others and collaboration with others. Many people can work on the same repo with ease and the codebase can also be forked into new projects. 
+
 \subsection{Setup for Devlopment and Testing}
+The setup for development and testing is as follows (for macOS):
+\begin{itemize}
+\subsubsection*{Initial Setup}
+\item Install mongoDB by following instructions here: \url{https://treehouse.github.io/installation-guides/mac/mongo-mac.html}
+\item Install VSCode (or editor of choice): \url{https://code.visualstudio.com/}
+\item Install Node LTS version: \url{https://nodejs.org/en/download/}
+\item Open up a terminal window.
+\item Change directory to the folder you want this project to be enclosed within.
+\item Then clone the repository \lstinline|git clone <URL>| at: \url{https://github.com/bradwindy/vagrant-multi-VM.git}
+\item This folder can now be opened in your editor of choice.
+
+\subsubsection*{Server}
+\item First the server must be run. In a terminal window at the root directory of the project, enter \lstinline|cd vm-2| which takes you to the server directory. Next enter \lstinline|npm run start| to start the server.
+\item If any changes are made to the server code, you will need to stop the server process using Ctrl+C and restart it again using  \lstinline|npm run start| before any changes are visible.
+
+\subsubsection*{Web App}
+\item To run a version of the web app for development. First you must change all URLs in the code that mention the IP address and port 192.168.55.11:3000 to instead be localhost:3000
+\item Then open another terminal window at the root directory of the project, enter \lstinline|cd vm-1| which takes you to the web app directory. Next enter \lstinline|npm run start| to start the web app. Press 'y' when prompted about ports.
+\item The app is now viewable at: \url{http://localhost:3001} Changes made to any of the code in the web app directory will be automatically loaded on save.
+
+\subsubsection*{PDF printing program}
+\item In a terminal window at the root directory of the project, enter \lstinline|cd vm-3| which takes you to the PDF program directory. 
+\item Then enter \lstinline|npm run start| to run the PDF printing program.
+\item If any changes are made to the list of tasks, this program can just be run again to overwrite the PDF file.
+
+\end{itemize}
+
+All these instructions are also available in the README file in the repo.
+
 \subsection{Possible Modifications}
 editing tasks
 \subsection{Re-Running VM's}
