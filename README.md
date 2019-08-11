@@ -41,6 +41,33 @@ These instructions will get you a copy of the project up and running on your loc
 - The command `vagrant up` in terminal will run the project.
 - You can now view the web app from <http://localhost:3001> and can enter and delete notes.
 
+## Development
+
+The setup for development and testing is as follows (for macOS):
+
+### Initial Setup
+
+- Install mongoDB by following instructions here: <https://treehouse.github.io/installation-guides/mac/mongo-mac.html>
+- Install VSCode (or editor of choice): <https://code.visualstudio.com/>
+- Install Node LTS version: <https://nodejs.org/en/download/>
+- Open up a terminal window.
+- Change directory to the folder you want this project to be enclosed within.
+- Then clone the repository.
+- This folder can now be opened in your editor of choice.
+
+### Server
+- First the server must be run. In a terminal window at the root directory of the project, enter `cd vm-2` which takes you to the server directory. Next enter `npm run start` to start the server.
+- If any changes are made to the server code, you will need to stop the server process using Ctrl+C and restart it again using  `npm run start` before any changes are visible.
+
+### Web App
+- To run a version of the web app for development. First you must change all URLs in the code that mention the IP address and port 192.168.55.11:3000 to instead be localhost:3000
+- Then open another terminal window at the root directory of the project, enter `cd vm-1` which takes you to the web app directory. Next enter `npm run start` to start the web app. Press 'y' when prompted about ports.
+- The app is now viewable at: <http://localhost:3001> Changes made to any of the code in the web app directory will be automatically loaded on save.
+
+### PDF printing program
+- In a terminal window at the root directory of the project, enter `cd vm-3` which takes you to the PDF program directory. Next enter `npm run start` to run the PDF printing program.
+- If any changes are made to the list of tasks, this program can just be run again to overwrite the file.
+
 ## Built With
 
 - [MongoDB](https://github.com/mongodb/mongo) - Database used.
