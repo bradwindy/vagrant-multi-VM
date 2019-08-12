@@ -134,13 +134,30 @@ The setup for development and testing is as follows (for macOS):
 All these instructions are also available in the README file in the repo.
 
 \subsection{Possible Modifications}
-editing tasks
+Once development setup is complete, two modifications that could be made to further the project are as follows:
+\begin{itemize}
+\item There could be a feature where the user is able to edit tasks. I imagine the user would have a edit button next to the 'x' button for each task, and once clicked, the contents of the task would populate the a popup with a textbox. This popup would also have a 'Save Edit' and a 'Cancel' button. Once the user changes the contents and clicks save, the new contents would be posted to the API on the server using Axios. The server would recieve this post request and there would be a new route created using Express that would update the DB with the new contents of the task but keeping the same ID.
+
+\item A second extension could be the idea of incorporating due dates into the tasks so that the user could know when they need to be completed by. This would especially be helpful when the system is used in a collaborative sense, as it communicates more information with each task. Several changes would need to be made to the code to achieve this. The DB structure would need to be updated to incorporate this new value. All API routes would need to be updated to make sure they are saving this information. A new field would also need to be added into the form on the web app to take in the due date using a date picker. An npm library could be used for this. The state within the web app and all display functions will also need to be updated to properly record and display this new value.
+
+\item A mobile app that communicates with the server VM over the network could also be a possible extension. This would require development of a mobile app that is similar in interface to the web app. This app would then need to be able to communicate with the server over the network to be able to send POST, GET, and DELETE requests. The server has its port 3000 forwarded to the port 3002 on the host machine and so a mobile app would be able to access this port on the host machine over the network to communicate with the server. 
+
+\end{itemize}
+
 \subsection{Re-Running VM's}
+To reload these changes into the VMs once they have been tested using the development setup, enter \lstinline|vagrant reload --provision| in the root directory of the project. 
 
 \section{Development Process}
 \subsection{Issue Driven Development}
+One of the development methods I implemented when developing this project was the concept of issue driven development. This is the concept of using issues to reference all elements of the development of your project, from features and enhancements, to bugs and issues, to documentation, testing and more. Most or all of the commits should reference an issue, this way, it is clear to see what work has been done regarding each feature and what each commit is involved with. I have included issues for both features and documentation in my project and these can be seen on GitHub in both my closed and open issues sections.
 \subsection{Development Timeline}
-(Commit History)
+All progress mentioned here is also referenced in my commit history of my project. The project started off by using the code I had written in the lab for my VM weather site. At the start I also added a readme file and a license file. I then removed the contents of the original vagrant file and replaced it with code to set up two virtual machines, one empty, and the other a basic Node server. I tested the server and was able to use curl to get information back from the server VM using port forwarding. I then removed the rest of the old files and continued to update my readme file. 
+
+I then initialised the React web app in it's respective folder and rewrote the server to use Express.js. I then wrote the route for posting notes to the server and handled their saving into the DB, along with the route to read notes too. These were then tested using the Postman app, which is a program used to test APIs. Next I used Axios within the React app to request notes from the server and then wrote the code to display them. Then I installed Bootstrap, a front end component library. This allowed me to use their components to simplify frontend development. 
+
+I then added the ability to add new notes within the React app, this includes all necessary routes, along with updating the readme. I then updated the UI and added delete one and delete all routes along with corresponding buttons on the web app. 
+
+I then moved to writing the code for printing the PDF from the list of tasks, starting with test data then adding code to get the tasks from the server instead. I then finalised some parts of the code, got the db to be initialised on start, and then fixed some bugs.
 
 
 \end{document}

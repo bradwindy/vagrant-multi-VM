@@ -4,6 +4,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define :server do |server|
     server.vm.box = "ubuntu/xenial64"
+    server.vm.network "forwarded_port", guest: 3000, host: 3002, auto_correct: true
     server.vm.network "private_network", ip: "192.168.55.11"
     server.vm.hostname = "server"
     server.vm.provision "shell", inline: <<-SHELL
