@@ -1,5 +1,7 @@
 # Vagrant Multi VM Assignment
 
+**FULL REPORT IS THE PDF IN LATEX FILES FOLDER**
+
 ## About
 
 This is a project connecting three VM's together to form a collaborative to-do list web app.
