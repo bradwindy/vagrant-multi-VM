@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.13)  12 AUG 2019 22:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.4.13)  2 SEP 2019 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -319,15 +319,15 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <6> on input line 48.
  [2] [3] [4]
 [5] [6] [7] [8]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 163.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 160.
  [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 163.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 160.
  (./349asgn1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 163.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 163.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 160.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 160.
 Package rerunfilecheck Info: File `349asgn1.out' has not changed.
 (rerunfilecheck)             Checksum: DFA7D77B5F8596F0B4A416B87BD3ADE5;1018.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 163.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 160.
  ) 
 Here is how much of TeX's memory you used:
  6915 strings out of 492649
@@ -342,7 +342,7 @@ Here is how much of TeX's memory you used:
 /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
 sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
 r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on 349asgn1.pdf (9 pages, 78939 bytes).
+Output written on 349asgn1.pdf (9 pages, 78641 bytes).
 PDF statistics:
  155 PDF objects out of 1000 (max. 8388607)
  137 compressed objects within 2 object streams
